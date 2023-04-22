@@ -21,3 +21,14 @@ quotes = {
  }
 stooge = "Curly"
 print(stooge, "says:", quotes[stooge])
+#ГЛАВА 3 Числа
+#Упражнения
+print(60*60)
+seconds_per_hour=3600
+print(seconds_per_hour)
+seconds_per_day = 24*seconds_per_hour
+print(seconds_per_day)
+seconds_per_day/seconds_per_hour
+print(seconds_per_day/seconds_per_hour)
+seconds_per_day//seconds_per_hour
+print(seconds_per_day//seconds_per_hour)
