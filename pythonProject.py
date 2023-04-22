@@ -21,3 +21,8 @@ quotes = {
  }
 stooge = "Curly"
 print(stooge, "says:", quotes[stooge])
+12122q
+tgrfrgf
+grgdvr
+grpdgvrf
+vf
