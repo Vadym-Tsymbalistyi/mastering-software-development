@@ -43,8 +43,8 @@ elif guess>secret:
 else:
  print('just right')
  #4.2
- small = True
- green = False
+ small = False
+ green = True
  if small:
   if green:
    print('вишня')
