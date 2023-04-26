@@ -32,3 +32,26 @@ seconds_per_day/seconds_per_hour
 print(seconds_per_day/seconds_per_hour)
 seconds_per_day//seconds_per_hour
 print(seconds_per_day//seconds_per_hour)
+#ГЛАВА 4 Выбираем с помощью оператора if
+#Упражнения 4.1
+secret=9
+guess=9
+if guess<secret:
+ print('too low')
+elif guess>secret:
+ print('too high')
+else:
+ print('just right')
+ #4.2
+ small = False
+ green = True
+ if small:
+  if green:
+   print('вишня')
+  else:
+   print('горошек')
+ else:
+  if green:
+   print('арбуз')
+  else:
+   print('тиква')
