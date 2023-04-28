@@ -55,5 +55,32 @@ print(
       spokesman='9',
       job_title='10')
       )
-#5.6 ,5.7,5.8- I don't understend how to do it :(
-name = ["duck", "gourd", "spitz"]
+#5.6 The code does not work
+# name1 = 'Duck'
+# print('%sy MS%sfase'%'name')
+#5.7
+name1 = 'Duck'
+text = "{0}y MS{0}fase".format(name1)
+print(text)
+name2 = 'Gourd'
+text = "{0}y MS{0}fase".format(name2)
+print(text)
+name3 = 'Spitz'
+text = "{0}y MS{0}fase".format(name3)
+print(text)
+#5.8
+name1= 'Duck'
+text =f"{name1}y MS{name1}fase"
+print(text)
+name2 = 'Gourd'
+text =f"{name2}y MS{name2}fase"
+print(text)
+name3 = 'Spitz'
+text =f"{name3}y MS{name3}fase"
+print(text)
+
+
+
+
+
+
