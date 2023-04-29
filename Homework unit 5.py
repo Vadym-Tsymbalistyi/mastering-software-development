@@ -78,9 +78,3 @@ print(text)
 name3 = 'Spitz'
 text =f"{name3}y MS{name3}fase"
 print(text)
-
-
-
-
-
-
