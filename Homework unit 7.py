@@ -44,5 +44,5 @@ rhymes = [
 start2 = "Someone better"
 start1="".join([text.capitalize() + "!"for text in start1])
 for first,second in rhymes:
-    print(f"{start1}{first.capitalize()}!")
-    print(f"{start2}{second}.")
+    print(f"{start1} {first.capitalize()}!")
+    print(f"{start2} {second}.")
