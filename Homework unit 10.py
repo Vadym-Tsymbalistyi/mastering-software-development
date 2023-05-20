@@ -89,32 +89,34 @@ print(hydrogen)
 # a getter property for each to return its value.
 class Element:
     def __init__(self, name, symbol, number):
-        self.name = name
-        self.symbol = symbol
-        self.number = number
+        self.__name = name
+        self.__symbol = symbol
+        self.__number = number
 
-
-@property
-def name(self):
-    return self.__name
-
-
-@property
-def symbol(self):
-    return self.__symbol
-
-
-@property
-def number(self):
-    return self.number
+    def privat(self):
+        print(self.__name, self.__symbol, self.__number)
 
 
 hydrogen = Element('Hydrogen', 'H', 1)
-print(hydrogen.name)
-print(hydrogen.symbol)
-print(hydrogen.number)
+hydrogen.privat()
 
+class Element:
+    def __init__(self, name, symbol, number):
+        self.__name = name
+        self.__symbol = symbol
+        self.__number = number
 
+    def name(self):
+        print(self.__name)
+    def symbol(self):
+        print(self.__symbol)
+    def number(self):
+        print(self.__number)
+
+hydrogen = Element('Hydrogen', 'H', 1)
+hydrogen.name()
+hydrogen.symbol()
+hydrogen.number()
 # 10.9 Define three classes: Bear, Rabbit, and Octothorpe. For each, define only one
 # method: eats(). This should return 'berries' (Bear), 'clover' (Rabbit), or
 # 'campers' (Octothorpe). Create one object from each and print what it eats.
@@ -139,6 +141,8 @@ o = Octothorpe()
 print(b.eats())
 print(r.eats())
 print(o.eats())
+
+
 # 10.10 Define these classes: Laser, Claw, and SmartPhone. Each has only one method:
 # does(). This returns 'disintegrate' (Laser), 'crush' (Claw), or 'ring' (Smart
 # Phone). Then, define the class Robot that has one instance (object) of each of these.
@@ -146,20 +150,28 @@ print(o.eats())
 class Laser:
     def does(self):
         return 'disintegrate'
+
+
 class Claw:
     def does(self):
-        return  'crush'
+        return 'crush'
+
+
 class SmartPhone:
     def does(self):
-        return  'rind'
+        return 'rind'
+
+
 class Robot:
-    def  __init__(self):
+    def __init__(self):
         self.laser = Laser
         self.claw = Claw
         self.smartphone = SmartPhone
+
     def does(self):
         return
 
-robot=Robot()
+
+robot = Robot()
 print(robot.does())
-#help me 10.10
+# help me 10.10
