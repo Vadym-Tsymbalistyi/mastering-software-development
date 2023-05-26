@@ -93,30 +93,25 @@ class Element:
         self.__symbol = symbol
         self.__number = number
 
-    def privat(self):
-        print(self.__name, self.__symbol, self.__number)
-
-
-hydrogen = Element('Hydrogen', 'H', 1)
-hydrogen.privat()
-
-class Element:
-    def __init__(self, name, symbol, number):
-        self.__name = name
-        self.__symbol = symbol
-        self.__number = number
-
+    @property
     def name(self):
-        print(self.__name)
+        return self.__name
+
+    @property
     def symbol(self):
-        print(self.__symbol)
+        return self.__symbol
+
+    @property
     def number(self):
-        print(self.__number)
+        return self.__number
+
 
 hydrogen = Element('Hydrogen', 'H', 1)
-hydrogen.name()
-hydrogen.symbol()
-hydrogen.number()
+print(hydrogen.name)
+print(hydrogen.symbol)
+print(hydrogen.number)
+
+
 # 10.9 Define three classes: Bear, Rabbit, and Octothorpe. For each, define only one
 # method: eats(). This should return 'berries' (Bear), 'clover' (Rabbit), or
 # 'campers' (Octothorpe). Create one object from each and print what it eats.
@@ -164,14 +159,14 @@ class SmartPhone:
 
 class Robot:
     def __init__(self):
-        self.laser = Laser
-        self.claw = Claw
-        self.smartphone = SmartPhone
+        self.laser = Laser()
+        self.claw = Claw()
+        self.smartphone = SmartPhone()
 
     def does(self):
-        return
+        return print(f'{self.laser.does()},{self.claw.does()},{self.smartphone.does()}')
+
 
 
 robot = Robot()
 print(robot.does())
-# help me 10.10
