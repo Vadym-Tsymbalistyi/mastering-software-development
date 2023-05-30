@@ -59,16 +59,16 @@ Of the youth beware of these,
 # re.findall() to print all the words that begin with c.
 import re
 
-pattern = r'\bc\w*'
+pattern = r'\b[Cc]\w*'
 re.findall(pattern, mammoth)
 print(re.findall(pattern, mammoth))
 
 # 12.6 Find all four-letter words that begin with c.
-pattern = r'\bc\w{3}\b'
+pattern = r'\b[Cc]\w{3}\b'
 re.findall(pattern, mammoth)
 print(re.findall(pattern, mammoth))
 # 12.7 Find all the words that end with r.
-pattern = r'\\b\w*r\b'
+pattern = r'\b\w*r\b'
 re.findall(pattern, mammoth)
 print(re.findall(pattern, mammoth))
 
@@ -90,8 +90,8 @@ print(len(gif))
 # 12.10 The bytes in gif define a one-pixel transparent GIF file, one of the most com‐
 # mon graphics file formats. A legal GIF starts with the ASCII characters GIF89a. Does
 # gif match this?
-gif[:6] == 'GIF89a'
-print(gif[:6] == 'GIF89a')
+gif[:6] == b'GIF89a'
+print(gif[:6] == b'GIF89a')
 # 12.11 The pixel width of a GIF is a 16-bit little-endian integer beginning at byte offset
 # 6, and the height is the same size, starting at offset 8. Extract and print these values
 # for gif. Are they both 1?
