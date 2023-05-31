@@ -12,13 +12,12 @@ print(good())
 # range(10). Use a for loop to find and print the third value returned.
 
 def get_odds():
-    yield num
+    for num in range(1,10,2):
+        yield num
 
-
-get_odds = (num for num in range(10) if not num % 2 == 0)
 
 count = 0
-for num in get_odds:
+for num in get_odds():
     if count == 2:
         print(num)
         break
