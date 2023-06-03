@@ -1,11 +1,11 @@
 # 13.1 Write the current date as a string to the text file today.txt.
 from datetime import datetime
 
-today = datetime.today()
-print(today)
-today = today.isoformat()
+now = datetime.today()
+print(now)
+now = now.isoformat()
 with open('today.txt', 'wt') as output:
-    print(today, file=output)
+    print(now, file=output)
 # 13.2 Read the text file today.txt into the string today_string.
 with open('today.txt', 'rt') as input:
     today_string = input.read()
