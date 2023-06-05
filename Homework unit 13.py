@@ -13,13 +13,7 @@ print(today_string)
 
 # 13.3 Parse the date from today_string.
 
-# date_object=datetime.strptime(today_string,"%Y-%m-%d %I:%M:%S\n")
-# print(date_object)
-
-from datetime import datetime
-
-date_string = "2001-05-25"
-date_object = datetime.strptime(date_string, "%Y-%m-%d")
+date_object = datetime.strptime(today_string, "%Y-%m-%dT%H:%M:%S.%f\n")
 print(date_object)
 
 # 13.4 Create a date object of your day of birth.
