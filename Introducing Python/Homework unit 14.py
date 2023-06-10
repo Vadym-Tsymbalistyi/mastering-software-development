@@ -1,4 +1,4 @@
-# 14.1 List the files in your current directory.
+# 14.1. List the files in your current directory.
 import os
 
 path = '.'
