@@ -1,4 +1,4 @@
-# ЧАСТЬ I : Основы Python
+# ЧАСТЬ I : Основы Python.
 # ГЛАВА 1 Python: с чем его едят
 # Пример 1.1. countdown.py
 for countdown in 5, 4, 3, 2, 1, "hey!":
