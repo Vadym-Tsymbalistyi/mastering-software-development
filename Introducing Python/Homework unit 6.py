@@ -5,7 +5,7 @@ while count <= 5:
 word='thud'
 for leter in word:
     print(leter)
-#6.1
+#6.1.
 start = [3,2,1,0]
 for leter in start:
     print(leter)
