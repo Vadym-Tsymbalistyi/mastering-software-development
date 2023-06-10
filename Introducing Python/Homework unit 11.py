@@ -2,7 +2,7 @@ import zoo
 
 zoo.hours()
 
-# 11.2 In the interactive interpreter, import the zoo module as menagerie and call its
+# 11.2. In the interactive interpreter, import the zoo module as menagerie and call its
 # hours() function.
 import zoo as menagerie
 
