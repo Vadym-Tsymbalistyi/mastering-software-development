@@ -1,4 +1,4 @@
-# 12.1 Create a Unicode string called mystery and assign it the value '\U0001f984'.
+# 12.1. Create a Unicode string called mystery and assign it the value '\U0001f984'.
 # Print mystery and its Unicode name.
 import struct
 
