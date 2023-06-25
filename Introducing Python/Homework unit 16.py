@@ -66,56 +66,28 @@ for row in db.execute(sql):
 for row in db.execute('select*from books order by year'):
     print(row)
 
-    ## 16.8 Use the sqlalchemy module to connect to the sqlite3 database books.db that you
-    ## just made in exercise 16.4. As in 16.6, select and print the title column from the
-    ## book table in alphabetical order.
-    # import sqlalchemy
-    #
-    # con = sqlalchemy.create_engine('sqlite:///./books.db')
-    # sql = 'select title from book order by title asv'
-    # rows = con.execute(sql)
-    # for row in rows:
-    #    print(row)
-    #
-    # 16.9 Install the Redis server and the Python redis library (pip install redis) on
-    # your computer. Create a Redis hash called test with the fields count (1) and name
-    # ('Fester Bestertester'). Print all the fields for test.
-#import redis
-#
-#conn = redis.Redis()
-#conn.delete('test')
-#conn.hmset('test', {'count': 1, 'name': 'Fester Bestertester'})
-#conn.hgetall('test')
+# 16.8 Use the sqlalchemy module to connect to the sqlite3 database books.db that you
+# just made in exercise 16.4. As in 16.6, select and print the title column from the
+# book table in alphabetical order.
+import sqlalchemy
+
+# conn = sqlalchemy.create_engine('sqlite:///C:/Users/Vadik/Desktop/pythonProject/Introducing Python/books.db')
+# conn = sqlalchemy.create_engine('sqlite:////Users/Vadik/Desktop/pythonProject/Introducing Python/books.db')
+# conn=sqlalchemy.create_engine('sqlite:///books.db')
+sql = 'select title from book order by title asv'
+rows = conn.execute(sql)
+for row in rows:
+    print(row)
+# 16.9 Install the Redis server and the Python redis library (pip install redis) on
+# your computer. Create a Redis hash called test with the fields count (1) and name
+# ('Fester Bestertester'). Print all the fields for test.
+    import redis
+
+conn = redis.Redis()
+conn.delete('test')
+# conn.hset('test', {'count': 1, 'name': 'Fester Bestertester'})
+conn.hgetall('test')
 
 # 16.10 Increment the count field of test and print it.
- conn.hincrby('test','count',3)
- conn.hget('test','count')
-
-# EXAMPLE
-import sqlite3
-
-conn = sqlite3.connect('students.db')
-
-c = conn.cursor()
-
-c.execute("""CREATE TABLE IF NOT EXISTS  students (
-            name TEXT,
-            age INTEGER,
-            height REAL
-    )""")
-
-c.execute("INSERT INTO students VALUES ('mark', 20, 1.9)")
-
-all_students = [
-    ('john', 21, 1.8),
-    ('david', 35, 1.7),
-    ('michael', 19, 1.83),
-]
-c.executemany("INSERT INTO students VALUES (?, ?, ?)", all_students)
-
-c.execute("SELECT * FROM students")
-print(c.fetchall())
-
-conn.commit()
-
-conn.close()
+conn.hincrby('test', 'count', 3)
+conn.hget('test', 'count')
