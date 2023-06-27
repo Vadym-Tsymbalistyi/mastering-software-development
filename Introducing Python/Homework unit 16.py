@@ -15,7 +15,7 @@ with open('books.csv', 'w') as outfile:
 
 # 16.2 Use the csv module and its DictReader method to read books2.csv to the variable
 # books. Print the values in books. Did DictReader handle the quotes and commas in
-# the second book’s title?
+# the second bookвЂ™s title?
 with open('books2.csv', 'r') as infile:
     books = csv.DictReader(infile)
     for book in books:
@@ -24,14 +24,14 @@ with open('books2.csv', 'r') as infile:
 # 16.3 Create a CSV file called books2.csv by using these lines:
 # title,author,year
 # The Weirdstone of Brisingamen,Alan Garner,1960
-# Perdido Street Station,China Miéville,2000
+# Perdido Street Station,China MiГ©ville,2000
 # Thud!,Terry Pratchett,2005
 # The Spellman Files,Lisa Lutz,2007
 # Small Gods,Terry Pratchett,1992
 
 text = '''title,author,year
 The Weirdstone of Brisingamen,Alan Garner,1960
-Perdido Street Station,China Miéville,2000
+Perdido Street Station,China MiГ©ville,2000
 Thud!,Terry Pratchett,2005
 The Spellman Files,Lisa Lutz,2007
 Small Gods,Terry Pratchett,1992'''
@@ -80,42 +80,19 @@ for row in db.execute('select*from books order by year'):
     # 16.9 Install the Redis server and the Python redis library (pip install redis) on
     # your computer. Create a Redis hash called test with the fields count (1) and name
     # ('Fester Bestertester'). Print all the fields for test.
-#import redis
-#
-#conn = redis.Redis()
-#conn.delete('test')
-#conn.hmset('test', {'count': 1, 'name': 'Fester Bestertester'})
-#conn.hgetall('test')
+import redis
 
+conn = redis.Redis()
+conn.delete('test')
+
+setName = 'test'
+
+nameAsKey = 'Fester Bestertester'
+conn.hset(setName, nameAsKey, 0)
+
+conn.hgetall(setName)
+print(conn.hgetall(setName))
 # 16.10 Increment the count field of test and print it.
- conn.hincrby('test','count',3)
- conn.hget('test','count')
-
-# EXAMPLE
-import sqlite3
-
-conn = sqlite3.connect('students.db')
-
-c = conn.cursor()
-
-c.execute("""CREATE TABLE IF NOT EXISTS  students (
-            name TEXT,
-            age INTEGER,
-            height REAL
-    )""")
-
-c.execute("INSERT INTO students VALUES ('mark', 20, 1.9)")
-
-all_students = [
-    ('john', 21, 1.8),
-    ('david', 35, 1.7),
-    ('michael', 19, 1.83),
-]
-c.executemany("INSERT INTO students VALUES (?, ?, ?)", all_students)
-
-c.execute("SELECT * FROM students")
-print(c.fetchall())
-
-conn.commit()
-
-conn.close()
+conn.hincrby(setName, nameAsKey, 3)
+conn.hget(setName, nameAsKey)
+print(conn.hgetall(setName))
