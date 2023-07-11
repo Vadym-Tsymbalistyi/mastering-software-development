@@ -7,6 +7,9 @@
 import csv
 from turtle import title
 
+import select
+from sqlalchemy import engine
+
 text = ''''author,book
 J R R Tolkien,The Hobbit
 Lynne Truss,"Eats, Shoots & Leaves"'''
@@ -49,7 +52,6 @@ db.commit()
 
 # 16.5 Read books.csv and insert its data into the book table.
 import csv
-import sqlite3
 
 int_str = '''insert into books values(?,?,?)'''
 with open('books2.csv', 'r') as infile:
@@ -66,33 +68,65 @@ for row in db.execute(sql):
 for row in db.execute('select*from books order by year'):
     print(row)
 
-    ## 16.8 Use the sqlalchemy module to connect to the sqlite3 database books.db that you
-    ## just made in exercise 16.4. As in 16.6, select and print the title column from the
-    ## book table in alphabetical order.
-    # import sqlalchemy
-    #
-    # con = sqlalchemy.create_engine('sqlite:///./books.db')
-    # sql = 'select title from book order by title asv'
-    # rows = con.execute(sql)
-    # for row in rows:
-    #    print(row)
-    #
-    # 16.9 Install the Redis server and the Python redis library (pip install redis) on
-    # your computer. Create a Redis hash called test with the fields count (1) and name
-    # ('Fester Bestertester'). Print all the fields for test.
-import redis
+# 16.8 Use the sqlalchemy module to connect to the sqlite3 database books.db that you
+# just made in exercise 16.4. As in 16.6, select and print the title column from the
+# book table in alphabetical order.
+# from sqlalchemy import create_engine
+#
+# engine = create_engine("sqlite:///books.db")
+# engine.connect()
+# if __name__ == '__main__':
+#    words = ['select title from books order by title asc']
+#
+#    words.sort()
+#    print(books.db)
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
-conn = redis.Redis()
-conn.delete('test')
+DATABASE_NAME = 'books.db'
 
-setName = 'test'
+engine = create_engine(f'sqlite:///{DATABASE_NAME}')
+Session = sessionmaker(bind=engine)
 
-nameAsKey = 'Fester Bestertester'
-conn.hset(setName, nameAsKey, 0)
+# Base = declarative_base()
 
-conn.hgetall(setName)
-print(conn.hgetall(setName))
-# 16.10 Increment the count field of test and print it.
-conn.hincrby(setName, nameAsKey, 3)
-conn.hget(setName, nameAsKey)
-print(conn.hgetall(setName))
+
+# def create_db():
+#    Base.metadata.create_all(engine)
+import os
+
+from sqlalchemy import and_, or_
+from sqlalchemy.orm import Session as SQLSession
+
+if __name__ == '__main__':
+    db_is_created = os.path.exists(DATABASE_NAME)
+    print(select title)
+
+# with engine.connect() as connection:
+#    query = select([book.c.title]).order_by(book.c.title)
+# result = connection.execute(query)
+#
+# for row in result:
+#    print(row)
+
+# 16.9 Install the Redis server and the Python redis library (pip install redis) on
+# your computer. Create a Redis hash called test with the fields count (1) and name
+# ('Fester Bestertester'). Print all the fields for test.
+# import redis
+#
+# conn = redis.Redis()
+# conn.delete('test')
+#
+# setName = 'test'
+#
+# nameAsKey = 'Fester Bestertester'
+# conn.hset(setName, nameAsKey, 0)
+#
+# conn.hgetall(setName)
+# print(conn.hgetall(setName))
+## 16.10 Increment the count field of test and print it.
+# conn.hincrby(setName, nameAsKey, 3)
+# conn.hget(setName, nameAsKey)
+# print(conn.hgetall(setName))
+#
