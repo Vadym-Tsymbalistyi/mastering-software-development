@@ -9,9 +9,14 @@ context = zmq.Context()
 client = context.socket(zmq.REQ)
 client.connect("tcp://%s:%s" % (host, port))
 print('Client started at', datetime.utcnow())
-while True:
-    sleep(5)
+
 request = b'time'
+client.send(request)
+reply = client.recv()
+print("Client received %s" % reply)
+sleep(20)
+
+request = b'close'
 client.send(request)
 reply = client.recv()
 print("Client received %s" % reply)
