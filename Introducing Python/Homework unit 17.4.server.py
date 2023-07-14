@@ -12,8 +12,10 @@ from time import sleep
 conn = redis.Redis()
 name = ['milkway', 'kit-kat', 'tvix', 'random']
 conveyor = 'chocolates'
+print('Starting conveyor,GET TO WORK')
 while True:
     seconds = random.random()
     sleep(seconds)
     piece = random.choice(name)
     conn.rpush(conveyor, piece)
+
