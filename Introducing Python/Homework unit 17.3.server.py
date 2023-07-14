@@ -10,4 +10,5 @@ def now():
 
 
 server = SimpleXMLRPCServer(("localhost", 6789))
-server.register_function
+server.register_function(now, "now")
+server.serve_forever()
