@@ -12,10 +12,12 @@ from time import sleep
 conn = redis.Redis()
 timeout = 10
 conveyor = 'chocolates'
+print('Laci in work')
 while True:
-    sleep(0.5)
+    sleep(0.1)
     msg = conn.blpop(conveyor, timeout)
     remaining = conn.llen(conveyor)
     if msg:
         piece = msg[1]
-        print('Lucy got a', piece, 'at', datetime.utcnow(),'only', remaining, 'left')
+        print('Lucy got a', piece, 'at', datetime.utcnow(), 'only', remaining, 'left')
+

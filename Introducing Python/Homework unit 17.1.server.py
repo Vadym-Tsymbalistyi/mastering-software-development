@@ -39,4 +39,11 @@ while True:
         data = now.encode('utf-8')
         server.sendto(data, client_addr)
         print('Server sent', data)
+    if data == b'close':
+        print("request for time")
+        now = "OK"
+        data = now.encode('utf-8')
+        server.sendto(data, client_addr)
+        print('Server sent', data)
+
         server.close()

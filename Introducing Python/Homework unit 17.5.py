@@ -7,11 +7,12 @@ import zmq
 from time import sleep
 
 host = '127.0.0.1'
-port = 6789
+port = 9876
 ctx = zmq.Context()
 pub = ctx.socket(zmq.PUB)
 pub.bind('tcp://%s:%s' % (host, port))
-sleep(1)
+print("STARTING")
+sleep(10)
 with open('mammoth.txt', 'rt') as poem:
     words = poem.read()
 for word in words.split():
@@ -23,3 +24,6 @@ for word in words.split():
     if len(word) == 5:
         print('five', data)
         pub.send_multipart([b'five', data])
+sleep(3)
+print('END')
+

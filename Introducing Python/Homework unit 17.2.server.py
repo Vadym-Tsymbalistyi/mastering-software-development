@@ -3,7 +3,7 @@ import zmq
 from datetime import datetime
 
 host = '127.0.0.1'
-port = 6789
+port = 9876
 context = zmq.Context()
 server = context.socket(zmq.REP)
 server.bind("tcp://%s:%s" % (host, port))
