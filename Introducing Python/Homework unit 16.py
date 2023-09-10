@@ -99,9 +99,9 @@ import os
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import Session as SQLSession
 
-if __name__ == '__main__':
-    db_is_created = os.path.exists(DATABASE_NAME)
-    print(select title)
+#if __name__ == '__main__':
+#    db_is_created = os.path.exists(DATABASE_NAME)
+#    print(select title)
 
 # with engine.connect() as connection:
 #    query = select([book.c.title]).order_by(book.c.title)
