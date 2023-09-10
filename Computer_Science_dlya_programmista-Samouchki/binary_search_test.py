@@ -1,10 +1,11 @@
 from unittest import TestCase, main
+from Chapter_3_Search_Algorithms import binary_search
 
 
 class BinarySearchTest(TestCase):
     def test_True(self):
         a_list = ['apple', 'banana', 'kiwi', 'orange', 'plum']
-        n = 'apple'
+        n = 'banana'
         result = binary_search(a_list, n)
         self.assertTrue(result)
 
