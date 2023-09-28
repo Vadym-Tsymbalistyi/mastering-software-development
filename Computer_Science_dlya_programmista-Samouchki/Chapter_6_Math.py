@@ -9,6 +9,3 @@ def is_prime_recursive(n, i=2):
     return is_prime_recursive(n, i + 1)
 
 
-n = 100
-prime_number = [num for num in range(2, n + 1) if is_prime_recursive(num)]
-print(prime_number)
