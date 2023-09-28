@@ -14,16 +14,6 @@
 # Верните массив, в котором все нечетные элементы массива an_array следуют
 # за всеми четными элементами an_array.
 def an_array(arr):
-    even = []
-    for i in arr:
-        if i % 2 == 0:
-            even.append(i)
-    odd=[]
-    for i in arr:
-        if i % 2 != 0:
-            odd.append(i)
-    return odd+even
-
-mas = [1, 2, 4, 24, 43, 4, 5, 6, 8, 8, 65, 765, 345]
-result = an_array(mas)
-print(result)
+    even = [i for i in arr if i % 2 == 0]
+    odd = [i for i in arr if i % 2 != 0]
+    return odd + even
