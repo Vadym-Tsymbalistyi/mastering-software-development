@@ -56,20 +56,26 @@ class LinkedList:
     # There is a Cycle Loop: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> Node(2, next = Node(2))
     def detect_cycle(self): # should return  True or False
         # TODO: implement
-       return detect_cycle_ring(self) + detect_cycle_loop(self) # pseudo code
-
+        return self.detect_cycle_ring() + self.detect_cycle_loop()  # pseudo code
 
     def detect_cycle_ring(self):  # should return  True or False
-        return False #TODO: implement
+        # TODO: implement
+        slow = self.head
+        fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow is fast:
+                return True
+        return False
 
     def detect_cycle_loop(self):  # should return  True or False
-        visited_nodes = ...
-
+        visited_node = list()
         currentNode = self.head
         while currentNode.next is not None:
-            if visited_nodes contains currentNode: # pseudo code
+            if visited_node in currentNode:  # pseudo code
                 return True
-            visited_nodes.append(currentNode)
+            visited_node.append(currentNode)
             currentNode = currentNode.next
         return False
 
