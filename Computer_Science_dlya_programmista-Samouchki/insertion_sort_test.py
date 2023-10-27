@@ -8,6 +8,8 @@ class InsertionSortTest(TestCase):
         result = [2, 3, 4, 7, 7, 8, 34, 445, 567]
         self.assertEquals(insertion_sort(a_list), result)
 
+
+class MergeSortTest(TestCase):
     def test_merge_sort(self):
         a_list = [1, 2, 3, 4]
         result = [1, 2, 3, 4]
