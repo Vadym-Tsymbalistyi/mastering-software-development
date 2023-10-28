@@ -1,15 +1,35 @@
 # 1. Создайте связный список, содержащий числа от 1 до 100. Затем выведите
 # каждый узел списка.
+
+# 2. Создайте два связных списка: один содержащий цикл, а другой — без цикла.
+# Убедитесь, что в каждом из них есть метод detect_cycle для определения
+# того, имеется ли в списке цикл. Вызовите detect_cycle для обоих списков.
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
-
 class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+
+    def __init__(self, node):
+        self.head = node
+
+    # head = None
+    # head = Node(data = 1, next = None)
+    # head = Node(data = 1, next = Node(2))
+
+    # LinkedList {
+    #            head = Node(data = 1, next = Node(2))
+    #            tail = Node(data = 1, next = Node(2))
+    #
+    #
+    #            Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> None
+    # currentNode ^
+    # }
 
     def append(self, data):
         current_node = Node(data)
@@ -26,61 +46,44 @@ class LinkedList:
             print(current_node.data)
             current_node = current_node.next
 
+    def create_cycle(self, node_id_from, node_id_to):
+        # TODO: implement
+        return
+
+    #
+    # There is no Cycle: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> None
+    # There is a Cycle Ring: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> Node(1, next = Node(2))
+    # There is a Cycle Loop: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> Node(2, next = Node(2))
+    def detect_cycle(self): # should return  True or False
+        # TODO: implement
+        return self.detect_cycle_ring() + self.detect_cycle_loop()  # pseudo code
+
+    def detect_cycle_ring(self):  # should return  True or False
+        # TODO: implement
+        slow = self.head
+        fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow is fast:
+                return True
+        return False
+
+    def detect_cycle_loop(self):  # should return  True or False
+        visited_node = list()
+        currentNode = self.head
+        while currentNode.next is not None:
+            if visited_node in currentNode:  # pseudo code
+                return True
+            visited_node.append(currentNode)
+            currentNode = currentNode.next
+        return False
+
+
+
 
 linked_list = LinkedList()
 for i in range(1, 101):
     linked_list.append(i)
 linked_list.print()
 
-
-# 2. Создайте два связных списка: один содержащий цикл, а другой — без цикла.
-# Убедитесь, что в каждом из них есть метод detect_cycle для определения
-# того, имеется ли в списке цикл. Вызовите detect_cycle для обоих списков.
-#class Node:
-#    def __init__(self, data, next=None):
-#        self.data = data
-#        self.next = next
-#
-#
-#class LinkedList:
-#    def __init__(self):
-#        self.head = None
-#
-#    def append(self, data):
-#        if not self.head:
-#            self.head = Node(data)
-#            return
-#        current = self.head
-#        while current.next:
-#            current = current.next
-#        current.next = Node(data)
-#
-#    def print(self):
-#        node = self.head
-#        while node is not None:
-#            print(node.data, end='->')
-#            node = node.next
-#        print('None')
-#
-#    def detect_cycle(self):
-#        slow = self.head
-#        fast = self.head
-#        while True:
-#            try:
-#                slow = slow.next
-#                fast = fast.next.next
-#                if slow is fast:
-#                    return True
-#            except:
-#                return False
-#
-#
-#linked_list = LinkedList()
-#linked_list.append(1)
-#linked_list.append(2)
-#linked_list.print()
-#
-#linked_list2 = LinkedList()
-#linked_list2.append(1)
-#linked_list2.append(2)
-#linked_list2.detect_cycle()
