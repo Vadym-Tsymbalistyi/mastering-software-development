@@ -58,6 +58,15 @@ class LinkedList:
             print("Warning: Cycle not created.")
         return
 
+    def find_node_by_id(self, node_id):
+        current_node = self.head
+        while current_node is not None:
+            if current_node.id == node_id:
+                return current_node
+            current_node = current_node.next
+        return None
+
+
     # There is no Cycle: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> None
     # There is a Cycle Ring: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> Node(1, next = Node(2))
     # There is a Cycle Loop: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = Node(2, next = Node(3)))
@@ -90,6 +99,9 @@ class LinkedList:
             visited_nodes.add(currentNode)
             currentNode = currentNode.next
         return False
+
+    def find_node_by_id(self, node_id_to):
+        pass
 
 
 linked_list = LinkedList()
