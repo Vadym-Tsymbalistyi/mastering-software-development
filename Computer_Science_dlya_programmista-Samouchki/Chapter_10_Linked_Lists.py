@@ -10,6 +10,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -48,13 +49,19 @@ class LinkedList:
 
     def create_cycle(self, node_id_from, node_id_to):
         # TODO: implement
+        from_node = self.find_node_by_id(node_id_from)
+        to_node = self.find_node_by_id(node_id_to)
+
+        if from_node is not None and to_node is not None:
+            from_node.next = to_node
+        else:
+            print("Warning: Cycle not created.")
         return
 
-    #
     # There is no Cycle: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> None
     # There is a Cycle Ring: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> Node(1, next = Node(2))
     # There is a Cycle Loop: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = Node(2, next = Node(3)))
-    def detect_cycle(self): # should return  True or False
+    def detect_cycle(self):  # should return  True or False
         return self.detect_cycle_ring() or self.detect_cycle_loop()  # pseudo code
 
     # O(N/2)
@@ -73,17 +80,16 @@ class LinkedList:
         return self.head == self.tail
 
     # O(N*logN)
+    # TODO: optimize O(logN) - > O(1)
     def detect_cycle_loop(self):  # should return  True or False
-        visited_nodes = list()
+        visited_nodes = set()
         currentNode = self.head
         while currentNode.next is not None:
-            if currentNode in visited_nodes:  #TODO: optimize O(logN) - > O(1)
+            if currentNode in visited_nodes:
                 return True
-            visited_nodes.append(currentNode)
+            visited_nodes.add(currentNode)
             currentNode = currentNode.next
         return False
-
-
 
 
 linked_list = LinkedList()
@@ -91,6 +97,4 @@ for i in range(1, 101):
     linked_list.append(i)
 linked_list.print()
 
-
-linked_list.create_cycle(3, 2) # ... -> Node(3, next = Node(2, next = Node(3)))
-
+linked_list.create_cycle(3, 2)  # ... -> Node(3, next = Node(2, next = Node(3)))
