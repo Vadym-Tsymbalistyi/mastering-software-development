@@ -6,9 +6,10 @@
 # того, имеется ли в списке цикл. Вызовите detect_cycle для обоих списков.
 
 class Node:
-    def __init__(self, data):
+    def __init__(self, node_id, data):
         self.data = data
         self.next = None
+        self.id = node_id
 
 
 class LinkedList:
@@ -66,7 +67,6 @@ class LinkedList:
             current_node = current_node.next
         return None
 
-
     # There is no Cycle: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> None
     # There is a Cycle Ring: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> Node(1, next = Node(2))
     # There is a Cycle Loop: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = Node(2, next = Node(3)))
@@ -99,9 +99,6 @@ class LinkedList:
             visited_nodes.add(currentNode)
             currentNode = currentNode.next
         return False
-
-    def find_node_by_id(self, node_id_to):
-        pass
 
 
 linked_list = LinkedList()
