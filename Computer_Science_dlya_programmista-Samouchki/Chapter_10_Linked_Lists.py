@@ -11,6 +11,9 @@ class Node:
         self.next = None
         self.id = node_id
 
+    def __str__(self):
+        return f"""node ID: {self.id}, data = {self.data}"""
+
 
 class LinkedList:
     def __init__(self):
@@ -107,3 +110,12 @@ for i in range(1, 101):
 linked_list.print()
 
 linked_list.create_cycle(3, 2)  # ... -> Node(3, next = Node(2, next = Node(3)))
+
+
+#
+
+node1 = Node(1, "N1")  # node1 (231234dd)-> Node#231234dd(1, "N1")
+linked_list = LinkedList(node1)  # linked_list -> LinkedList#1(Node#231234dd)
+
+print(linked_list.find_node_by_id(node1.id))
+print(linked_list.find_node_by_id(999))
