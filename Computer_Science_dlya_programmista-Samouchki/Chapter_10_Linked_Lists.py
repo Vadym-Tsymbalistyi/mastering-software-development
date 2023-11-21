@@ -88,8 +88,8 @@ class LinkedList:
         return False
 
     # O(1)
-   # def detect_cycle_ring_O1(self):
-   #     return self.head == self.tail
+    # def detect_cycle_ring_O1(self):
+    #     return self.head == self.tail
 
     # O(N*logN)
     # TODO: optimize O(logN) - > O(1)
@@ -138,7 +138,5 @@ print(found_node_2)
 print(found_node_3)
 print(not_found_node)
 
-
 # TEST def create_cycle
-linked_list.create_cycle(1, 3)   #displays False instead of True
-
+linked_list.create_cycle(1, 3)  # displays False instead of True
