@@ -88,8 +88,8 @@ class LinkedList:
         return False
 
     # O(1)
-    def detect_cycle_ring_O1(self):
-        return self.head == self.tail
+   # def detect_cycle_ring_O1(self):
+   #     return self.head == self.tail
 
     # O(N*logN)
     # TODO: optimize O(logN) - > O(1)
@@ -104,18 +104,40 @@ class LinkedList:
         return False
 
 
-linked_list = LinkedList()
-for i in range(1, 101):
-    linked_list.append(i)
-linked_list.print()
-
-linked_list.create_cycle(3, 2)  # ... -> Node(3, next = Node(2, next = Node(3)))
-
-
+# linked_list = LinkedList()
+# for i in range(1, 101):
+#    linked_list.append(i)
+# linked_list.print()
 #
+# linked_list.create_cycle(3, 2)  # ... -> Node(3, next = Node(2, next = Node(3)))
+
+# node1 = Node(1, "N1") # node1 (231234dd)-> Node#231234dd(1, "N1")
+# linked_list = LinkedList(node1) # linked_list -> LinkedList#1(Node#231234dd)
+#
+# print ( linked_list . find_node_by_id ( node1 . id ))
+# print ( linked_list . find_node_by_id ( 999 ))
+
+
+# TEST def find_node_by_id
 
 node1 = Node(1, "N1")  # node1 (231234dd)-> Node#231234dd(1, "N1")
-linked_list = LinkedList(node1)  # linked_list -> LinkedList#1(Node#231234dd)
+node2 = Node(2, "N2")
+node3 = Node(3, "N3")
 
-print(linked_list.find_node_by_id(node1.id))
-print(linked_list.find_node_by_id(999))
+linked_list = LinkedList(node1)  # linked_list -> LinkedList#1(Node#231234dd)
+linked_list_2 = LinkedList(node2)
+linked_list_3 = LinkedList(node3)
+
+found_node_1 = linked_list.find_node_by_id(1)
+found_node_2 = linked_list_2.find_node_by_id(2)
+found_node_3 = linked_list_3.find_node_by_id(3)
+not_found_node = linked_list.find_node_by_id(999)
+
+print(found_node_1)
+print(found_node_2)
+print(found_node_3)
+print(not_found_node)
+
+# TEST def create_cycle
+linked_list.create_cycle(1, 3)   #displays False instead of True
+
