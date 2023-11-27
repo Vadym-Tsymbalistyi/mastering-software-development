@@ -20,7 +20,7 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    def __init__(self, node:Node):
+    def __init__(self, node: Node):
         self.head = node
         self.tail = node
 
@@ -31,8 +31,6 @@ class LinkedList:
     # LinkedList {
     #            head = Node(data = 1, next = Node(2))
     #            tail = Node(data = 1, next = Node(2))
-    #
-    #
     #            Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> None
     # currentNode ^
     # }
@@ -76,8 +74,9 @@ class LinkedList:
     # There is no Cycle: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> None
     # There is a Cycle Ring: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = None) -> Node(1, next = Node(2))
     # There is a Cycle Loop: Node(1, next = Node(2)) -> Node(2, next = Node(3)) -> Node(3, next = Node(2, next = Node(3)))
+
     def detect_cycle(self):  # should return  True or False
-        return self.detect_cycle_ring() or self.detect_cycle_loop()  # pseudo code
+        return self.detect_cycle_ring() or self.detect_cycle_loop()
 
     # O(N/2)
     def detect_cycle_ring(self):  # should return  True or False (Boolean)
@@ -105,52 +104,3 @@ class LinkedList:
             visited_nodes.add(currentNode)
             currentNode = currentNode.next
         return False
-
-
-# linked_list = LinkedList()
-# for i in range(1, 101):
-#     linked_list.append(i)
-# linked_list.print()
-#
-# linked_list.create_cycle(3, 2)  # ... -> Node(3, next = Node(2, next = Node(3)))
-
-# node1 = Node(1, "N1") # node1 (231234dd)-> Node#231234dd(1, "N1")
-# linked_list = LinkedList(node1) # linked_list -> LinkedList#1(Node#231234dd)
-#
-# print ( linked_list . find_node_by_id ( node1 . id ))
-# print ( linked_list . find_node_by_id ( 999 ))
-
-# TEST def find_node_by_id
-
-
-# node1 = Node(1, "N1")  # node1 (231234dd)-> Node#231234dd(1, "N1")
-# node2 = Node(2, "N2")
-# node3 = Node(3, "N3")
-#
-# linked_list = LinkedList(node1)  # linked_list -> LinkedList#1(Node#231234dd)
-# linked_list_2 = LinkedList(node2)
-# linked_list_3 = LinkedList(node3)
-#
-# found_node_1 = linked_list.find_node_by_id(1)
-# found_node_2 = linked_list_2.find_node_by_id(2)
-# found_node_3 = linked_list_3.find_node_by_id(3)
-# not_found_node = linked_list.find_node_by_id(999)
-#
-# print(found_node_1)
-# print(found_node_2)
-# print(found_node_3)
-# print(not_found_node)
-#
-## TEST def create_cycle
-# print(linked_list.create_cycle(1, 23))
-
-# linked_list.create_cycle(1, 2)  # displays False instead of True
-#
-
-
-node1 = Node(1, "A")
-
-linked_list = LinkedList(node1)
-linked_list.append(1, "D")
-linked_list.append(2, "E")
-linked_list.print()
