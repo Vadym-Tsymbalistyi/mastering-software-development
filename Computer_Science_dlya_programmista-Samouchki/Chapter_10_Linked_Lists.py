@@ -96,7 +96,7 @@ class LinkedList:
     # O(N*logN)
     # TODO: optimize O(logN) - > O(1)
     def detect_cycle_loop(self):  # should return  True or False
-        visited_nodes = set()
+        visited_nodes = dict()
         currentNode = self.head
         while currentNode.next is not None:
             if currentNode in visited_nodes:
