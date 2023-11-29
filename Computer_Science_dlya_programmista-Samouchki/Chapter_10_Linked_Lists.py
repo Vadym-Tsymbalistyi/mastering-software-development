@@ -101,6 +101,6 @@ class LinkedList:
         while currentNode.next is not None:
             if currentNode in visited_nodes:
                 return True
-            visited_nodes.add(currentNode)
+            visited_nodes[currentNode] = True
             currentNode = currentNode.next
         return False
