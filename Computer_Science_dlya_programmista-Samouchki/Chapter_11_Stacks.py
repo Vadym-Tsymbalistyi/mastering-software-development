@@ -4,21 +4,14 @@
 def check_parentheses(a_string):
     stak = []
     for c in a_string:
-        if c == "(" and "(":
+        if c == "(" or c == "{":
             stak.append(c)
-        if c == "}" and "}":
+        if c == ")" or c == "}":
             if len(stak) == 0:
                 return False
             else:
                 stak.pop()
     return len(stak) == 0
-
-
-input_string = "(){}[]"
-if check_parentheses(input_string):
-    print('Скобки сбалансированы ')
-else:
-    print('Скобки не сбалансированы')
 
 
 # 2. Создайте максимальный стек, который позволит проталкивать, выталкивать
@@ -44,12 +37,3 @@ class MaxStack():
 
     def get_max(self):
         return self.max[-1]
-
-
-max_stack = MaxStack()
-max_stack.push(3)
-max_stack.push(5)
-max_stack.push(2)
-print("Максимальное значение:", max_stack.get_max())
-max_stack.pop()
-print("Максимальное значение после pop:", max_stack.get_max())
