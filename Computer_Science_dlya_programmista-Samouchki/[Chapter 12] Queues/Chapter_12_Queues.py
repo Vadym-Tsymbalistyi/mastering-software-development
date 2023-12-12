@@ -5,10 +5,10 @@ class Queue():
         self.s1 = []
         self.s2 = []
 
-    def enqueue(self, item):
+    def enqueue(self, item):  # константное время O(1),
         self.s1.append(item)
 
-    def dequeue(self):
+    def dequeue(self):  # амортизированное время O(1)
         if not self.s2:
             while self.s1:
                 self.s2.append(self.s1.pop())

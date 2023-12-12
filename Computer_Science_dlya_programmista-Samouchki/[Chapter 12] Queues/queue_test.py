@@ -26,6 +26,11 @@ class TestQueue(TestCase):
         self.assertEqual(queue.s1, [])
         self.assertEqual(queue.s2, [3, 2])
 
+   # def test_dequeue_empty(self):
+   #     queue = Queue()
+   #     self.assertEqual(queue.),("Cannot pop from empty queue")
+
+
 
 if __name__ == '__main__':
     main()
