@@ -3,33 +3,26 @@ from Chapter_12_Queues import Queue
 
 
 class TestQueue(TestCase):
-    # def setUp(self):
-    #    queue = Queue()
-    #    queue.enqueue(1)
-    #    queue.enqueue(2)
-    #    queue.enqueue(3)
+    def setUp(self):
+        self.queue = Queue()
+        self.queue.enqueue(1)
+        self.queue.enqueue(2)
+        self.queue.enqueue(3)
 
     def test_enqueue(self):
-        queue = Queue()
-        queue.enqueue(1)
-        queue.enqueue(2)
-        queue.enqueue(3)
-        self.assertEqual(queue.s1, [1, 2, 3])
+        self.assertEqual(self.queue.s1, [1, 2, 3])
 
     def test_dequeue(self):
-        queue = Queue()
-        queue.enqueue(1)
-        queue.enqueue(2)
-        queue.enqueue(3)
-        result = queue.dequeue()
+        result = self.queue.dequeue()
         self.assertEqual(result, 1)
-        self.assertEqual(queue.s1, [])
-        self.assertEqual(queue.s2, [3, 2])
+        self.assertEqual(self.queue.s1, [])
+        self.assertEqual(self.queue.s2, [3, 2])
 
-   # def test_dequeue_empty(self):
-   #     queue = Queue()
-   #     self.assertEqual(queue.),("Cannot pop from empty queue")
-
+    def test_dequeue_empty(self):
+        self.queue = Queue()
+        with self.assertRaises(Exception) as context:
+            self.queue.dequeue()
+        self.assertEqual(str(context.exception), "Cannot pop from empty queue")
 
 
 if __name__ == '__main__':
