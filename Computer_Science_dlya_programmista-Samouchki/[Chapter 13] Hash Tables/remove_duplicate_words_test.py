@@ -1,0 +1,13 @@
+from unittest import TestCase, main
+from Chapter_13_Hash_Tables import remove_duplicate_words
+
+
+class TestRemoveDuplicateWords(TestCase):
+    def test_remove_duplicate_words(self):
+        original_sentence = "I am a self-taught programmer looking for a job as a programmer ."
+        expected_result = "I am a self-taught programmer looking for job as ."
+        self.assertEqual(remove_duplicate_words(original_sentence), expected_result)
+
+
+if __name__ == '__main__':
+    main()
