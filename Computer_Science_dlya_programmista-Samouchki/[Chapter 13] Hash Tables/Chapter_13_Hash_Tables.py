@@ -1,3 +1,7 @@
+#В предлагаемой строке удалите все повторяющиеся слова. Например, вам
+#дана строка "I am a self-taught programmer looking for a job as a programmer.".
+#Ваша функция должна вернуть "I am a self-taught programmer looking for
+#a job as a.".
 def remove_duplicate_words(sentence):
     words = sentence.split()
     unique_words = set()
