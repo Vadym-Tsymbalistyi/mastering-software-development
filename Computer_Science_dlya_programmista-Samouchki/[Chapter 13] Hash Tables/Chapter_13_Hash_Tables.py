@@ -1,19 +1,29 @@
-#В предлагаемой строке удалите все повторяющиеся слова. Например, вам
-#дана строка "I am a self-taught programmer looking for a job as a programmer.".
-#Ваша функция должна вернуть "I am a self-taught programmer looking for
-#a job as a.".
+# Р’ РїСЂРµРґР»Р°РіР°РµРјРѕР№ СЃС‚СЂРѕРєРµ СѓРґР°Р»РёС‚Рµ РІСЃРµ РїРѕРІС‚РѕСЂСЏСЋС‰РёРµСЃСЏ СЃР»РѕРІР°. РќР°РїСЂРёРјРµСЂ, РІР°Рј
+# РґР°РЅР° СЃС‚СЂРѕРєР° "I am a self-taught programmer looking for a job as a programmer.".
+# Р’Р°С€Р° С„СѓРЅРєС†РёСЏ РґРѕР»Р¶РЅР° РІРµСЂРЅСѓС‚СЊ "I am a self-taught programmer looking for
+# a job as a.".
+from collections import OrderedDict
+#import string
+
+
+def remove_dots(del_dots):
+    return del_dots.rstrip('.')
+
+
 def remove_duplicate_words(sentence):
+    #translator = str.maketrans('', '', string.punctuation)
     words = sentence.split()
-    unique_words = set()
-    new_sentence = []
+    unique_words = OrderedDict()
 
     for word in words:
-        if word not in unique_words:
-            unique_words.add(word)
-            new_sentence.append(word)
+        #cleaned_word = word.translate(translator)
+        cleaned_word = remove_dots(word)
+        unique_words[cleaned_word] = None
+
+    new_sentence = list(unique_words.keys())
     return " ".join(new_sentence)
 
 
-original_sentence = "I am a self-taught programmer looking for a job as a programmer ."
-result = remove_duplicate_words(original_sentence)
+sentence = "I am a self-taught programmer looking for a job as a programmer."
+result = remove_duplicate_words(sentence)
 print(result)
