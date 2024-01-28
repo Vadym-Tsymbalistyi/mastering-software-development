@@ -42,7 +42,7 @@ print(result)
 
 
 # 2. Инвертируйте двоичное дерево с помощью обхода в глубину.
-class BinaryTree:
+class Node:
     def __init__(self, value):
         self.key = value
         self.left = None
@@ -77,11 +77,11 @@ def print_tree(tree):
 #        print_tree(tree.left)
 #        print(tree.key, end='')
 #        print_tree(tree.right)
-tree = BinaryTree(1)
-tree.left = BinaryTree(2)
-tree.right = BinaryTree(3)
-tree.left.left = BinaryTree(4)
-tree.right.right = BinaryTree(5)
+tree = Node(1)
+tree.left = Node(2)
+tree.right = Node(3)
+tree.left.left = Node(4)
+tree.right.right = Node(5)
 print("Исходное дерево:")
 print_tree(tree)
 insert_tree(tree)
