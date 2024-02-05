@@ -4,41 +4,34 @@
 class BinaryTree:
     def __init__(self, value):
         self.key = value
-        self.left_child = None
-        self.right_child = None
+        self.__left_child = None
+        self.__right_child = None
 
     def insert_left(self, value):
-        if self.left_child == None:
-            self.left_child = BinaryTree(value)
+        if self.__left_child is None:
+            self.__left_child = BinaryTree(value)
         else:
             bin_tree = BinaryTree(value)
-            bin_tree.left_child = self.left_child
-            self.left_child = bin_tree
+            bin_tree.__left_child = self.__left_child
+            self.__left_child = bin_tree
 
     def insert_right(self, value):
-        if self.right_child == None:
-            self.right_child = BinaryTree(value)
+        if self.__right_child is None:
+            self.__right_child = BinaryTree(value)
         else:
             bin_tree = BinaryTree(value)
-            bin_tree.right_child = self.right_child
-            self.right_child = bin_tree
+            bin_tree.__right_child = self.__right_child
+            self.__right_child = bin_tree
 
-    def hes_left_nodes(self, node):
+    def has_left_nodes(self):
+        return self.__has_left_nodes(self)
+
+    def __has_left_nodes(self, node):
         if node is None:
             return False
-        if node.left_child is None and node.right_child is None:
+        if node.__left_child is not None or node.__right_child is not None:
             return True
-        return self.hes_left_nodes(node.left_child) or self.hes_left_nodes(node.right_child)
-
-    def has_leaf_nodes(self):
-        return self.hes_left_nodes(self)
-
-
-tree = BinaryTree(1)
-tree.insert_left(2)
-tree.insert_right(3)
-result = tree.has_leaf_nodes()
-print(result)
+        return self.__has_left_nodes(node.__left_child) or self.__has_left_nodes(node.__right_child)
 
 
 # 2. Инвертируйте двоичное дерево с помощью обхода в глубину.

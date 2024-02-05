@@ -7,22 +7,18 @@ class TestBinaryTree(TestCase):
         self.tree = BinaryTree(1)
         self.tree.insert_left(2)
         self.tree.insert_right(3)
-        self.tree.left_child.insert_left(4)
-        self.tree.right_child.insert_right(5)
 
     def test_hes_left_nodes(self):
-        self.assertTrue(self.tree.has_leaf_nodes())
-        self.assertTrue(self.tree.left_child.has_leaf_nodes())
+        self.assertTrue(self.tree.has_left_nodes())
+        self.tree._BinaryTree__left_child.insert_left(4)
+        self.assertTrue(self.tree.has_left_nodes())
+        self.assertFalse(self.tree._BinaryTree__right_child.has_left_nodes())
 
     def test_insert_left(self):
-        new_value = 6
-        self.tree.left_child.insert_left(new_value)
-        self.assertEqual(self.tree.left_child.left_child.key, new_value)
+        self.assertEqual(self.tree._BinaryTree__left_child.key, 2)
 
     def test_insert_right(self):
-        new_value = 7
-        self.tree.right_child.insert_right(new_value)
-        self.assertEqual(self.tree.right_child.right_child.key, new_value)
+        self.assertEqual(self.tree._BinaryTree__right_child.key, 3)
 
 
 
