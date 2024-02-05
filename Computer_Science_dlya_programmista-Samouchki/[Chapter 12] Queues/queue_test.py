@@ -10,13 +10,14 @@ class TestQueue(TestCase):
         self.queue.enqueue(3)
 
     def test_enqueue(self):
-        self.assertEqual(self.queue.s1, [1, 2, 3])
+        self.queue.enqueue(1)
+        self.queue.enqueue(2)
+        self.assertEqual(self.queue.dequeue(), 1)
+        self.assertEqual(self.queue.dequeue(), 2)
 
     def test_dequeue(self):
         result = self.queue.dequeue()
         self.assertEqual(result, 1)
-        self.assertEqual(self.queue.s1, [])
-        self.assertEqual(self.queue.s2, [3, 2])
 
     def test_dequeue_empty(self):
         self.queue = Queue()
