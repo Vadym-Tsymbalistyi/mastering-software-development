@@ -32,7 +32,6 @@ class TestNode(TestCase):
 
     def test_insert_tree(self):
         insert_tree(self.tree)
-
         self.assertEqual(self.tree.key, 1)
         self.assertEqual(self.tree.left.key, 3)
         self.assertEqual(self.tree.right.key, 2)
