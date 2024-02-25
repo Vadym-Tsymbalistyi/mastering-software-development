@@ -7,6 +7,14 @@ class BinaryTree:
         self.__left_child = None
         self.__right_child = None
 
+    @property
+    def left_child(self):
+        return self.__left_child
+
+    @property
+    def right_child(self):
+        return self.__right_child
+
     def insert_left(self, value):
         if self.__left_child is None:
             self.__left_child = BinaryTree(value)
@@ -23,15 +31,15 @@ class BinaryTree:
             bin_tree.__right_child = self.__right_child
             self.__right_child = bin_tree
 
-    def has_left_nodes(self):
-        return self.__has_left_nodes(self)
+    def has_leaf_nodes(self):
+        return self.has_leaf_nodes(self)
 
-    def __has_left_nodes(self, node):
+    def __has_leaf_nodes(self, node):
         if node is None:
             return False
         if node.__left_child is not None or node.__right_child is not None:
             return True
-        return self.__has_left_nodes(node.__left_child) or self.__has_left_nodes(node.__right_child)
+        return self.__has_leaf_nodes(node.__left_child) or self.__has_leaf_nodes(node.__right_child)
 
 
 # 2. Инвертируйте двоичное дерево с помощью обхода в глубину.
@@ -56,27 +64,3 @@ def print_tree(tree):
         print(tree.key, end='')
         print_tree(tree.left)
         print_tree(tree.right)
-
-
-#        #вызовов в обратном обходе.
-# def print_tree(tree):
-#    if tree:
-#        print_tree(tree.left)
-#        print_tree(tree.right)
-#        print(tree.key, end='')
-#       #симметричный обход.
-# def print_tree(tree):
-#    if tree:
-#        print_tree(tree.left)
-#        print(tree.key, end='')
-#        print_tree(tree.right)
-tree = Node(1)
-tree.left = Node(2)
-tree.right = Node(3)
-tree.left.left = Node(4)
-tree.right.right = Node(5)
-print("Исходное дерево:")
-print_tree(tree)
-insert_tree(tree)
-print("\nИнвертированное дерево:")
-print_tree(tree)
