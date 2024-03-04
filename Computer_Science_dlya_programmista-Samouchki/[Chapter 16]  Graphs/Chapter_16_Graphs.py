@@ -35,16 +35,3 @@ def dijkstra(graph, starting_vertex, ending_vertex):
     else:
         return f"Нет пути из {starting_vertex} в {ending_vertex}"
     return path
-
-graph = {
-            'A': {'B': 1, 'C': 4},
-            'B': {'A': 1, 'C': 2},
-            'C': {'A': 4, 'B': 2},
-            'D': {'E': 3},
-            'E': {'D': 3}
-        }
-
-start_vertex = 'A'
-end_vertex = 'C'
-result_path = dijkstra(graph, start_vertex, end_vertex)
-print(f"Кратчайший путь из {start_vertex} в {end_vertex}: {result_path}")
