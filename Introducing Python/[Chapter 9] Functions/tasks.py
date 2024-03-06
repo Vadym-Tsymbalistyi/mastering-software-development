@@ -1,5 +1,4 @@
-# 9.1.  Define a function called good() that returns the list ['Harry', 'Ron', 'Hermione']
-
+# 9.1 Define a function called good() that returns the list ['Harry', 'Ron', 'Hermione']
 def good():
     return ['Harry', 'Ron', 'Hermione']
 
@@ -17,11 +16,8 @@ for num in get_odds:
         break
     count += 1
 
-
-# 9.3
-#  Define a decorator called test that prints 'start' when a function is called and
+# 9.3 Define a decorator called test that prints 'start' when a function is called and
 # 'end' when it finishes.
-
 def decorator(func):
     def nested_function(a, b):
         print('start')
@@ -38,11 +34,8 @@ def add(a, b):
 
 add(12, 4)
 
-
 # 9.4 Define an exception called OopsException. Raise this exception to see what hap‐
 # pens. Then write the code to catch this exception and print 'Caught an oops'.
-
-
 class OopsException(Exception):
     pass
 

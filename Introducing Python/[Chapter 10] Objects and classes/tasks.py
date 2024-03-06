@@ -42,6 +42,7 @@ class Element():
 
 
 hydrogen = Element('Hydrogen', 'H', 1)
+
 # 10.5 Make a dictionary with these keys and values: 'name': 'Hydrogen', 'symbol':
 # 'H', 'number': 1. Then, create an object called hydrogen from class Element using
 # this dictionary.
@@ -165,7 +166,6 @@ class Robot:
 
     def does(self):
         return print(f'{self.laser.does()},{self.claw.does()},{self.smartphone.does()}')
-
 
 
 robot = Robot()

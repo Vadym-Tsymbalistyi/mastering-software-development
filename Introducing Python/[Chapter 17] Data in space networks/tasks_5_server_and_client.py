@@ -13,7 +13,7 @@ pub = ctx.socket(zmq.PUB)
 pub.bind('tcp://%s:%s' % (host, port))
 print("STARTING")
 sleep(10)
-with open('mammoth.txt', 'rt') as poem:
+with open('../[Chapter 12] Processing data/mammoth.txt', 'rt') as poem:
     words = poem.read()
 for word in words.split():
     word = word.strip(string.punctuation)
