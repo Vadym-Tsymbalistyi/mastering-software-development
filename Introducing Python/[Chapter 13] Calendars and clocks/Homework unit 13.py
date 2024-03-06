@@ -4,10 +4,10 @@ from datetime import datetime
 now = datetime.today()
 print(now)
 now = now.isoformat()
-with open('today.txt', 'wt') as output:
+with open('../today.txt', 'wt') as output:
     print(now, file=output)
 # 13.2 Read the text file today.txt into the string today_string.
-with open('today.txt', 'rt') as input:
+with open('../today.txt', 'rt') as input:
     today_string = input.read()
 print(today_string)
 

@@ -13,13 +13,13 @@ from sqlalchemy import engine
 text = ''''author,book
 J R R Tolkien,The Hobbit
 Lynne Truss,"Eats, Shoots & Leaves"'''
-with open('books.csv', 'w') as outfile:
+with open('../books.csv', 'w') as outfile:
     outfile.write(text)
 
 # 16.2 Use the csv module and its DictReader method to read books2.csv to the variable
 # books. Print the values in books. Did DictReader handle the quotes and commas in
 # the second bookвЂ™s title?
-with open('books2.csv', 'r') as infile:
+with open('../books2.csv', 'r') as infile:
     books = csv.DictReader(infile)
     for book in books:
         print(book)
@@ -38,14 +38,14 @@ Perdido Street Station,China MiГ©ville,2000
 Thud!,Terry Pratchett,2005
 The Spellman Files,Lisa Lutz,2007
 Small Gods,Terry Pratchett,1992'''
-with open('books2.csv', 'w', encoding="utf-8") as outfile:
+with open('../books2.csv', 'w', encoding="utf-8") as outfile:
     outfile.write(text)
 
 # 16.4 Use the sqlite3 module to create a SQLite database called books.db and a table
 # called books with these fields: title (text), author (text), and year (integer).
 import sqlite3
 
-db = sqlite3.connect('books.db')
+db = sqlite3.connect('../books.db')
 cursor = db.cursor()
 cursor.execute('''CREATE TABLE  IF NOT EXISTS books (title text, author text, year integer)''')
 db.commit()
@@ -54,7 +54,7 @@ db.commit()
 import csv
 
 int_str = '''insert into books values(?,?,?)'''
-with open('books2.csv', 'r') as infile:
+with open('../books2.csv', 'r') as infile:
     books = csv.DictReader(infile)
     for book in books:
         cursor.execute(int_str, (book['title'], book['author'], book['year']))
