@@ -3,8 +3,8 @@ from Chapter_16_Graphs import dijkstra
 
 
 class TestGraphs(TestCase):
-    def test_short_path_graph1(self):
-        graph1 = {
+    def test_short_path(self):
+        graph = {
             'A': {'B': 1, 'C': 4},
             'B': {'A': 1, 'C': 2},
             'C': {'A': 4, 'B': 2},
@@ -12,11 +12,11 @@ class TestGraphs(TestCase):
         }
         start_vertex = ('A')
         end_vertex = ('C')
-        result_path = dijkstra(graph1, start_vertex, end_vertex)
+        result_path = dijkstra(graph, start_vertex, end_vertex)
         self.assertEqual(result_path, ['A', 'B', 'C'])
 
-    def test_short_path(self):
-        graph2 = {
+    def test_short_not_path(self):
+        my_network = {
             'A': {'B': 1, 'C': 4},
             'B': {'A': 1, 'C': 2},
             'C': {'A': 4, 'B': 2},
@@ -25,8 +25,8 @@ class TestGraphs(TestCase):
         }
         start_vertex = 'A'
         end_vertex = 'E'
-        result_path = dijkstra(graph2, start_vertex, end_vertex)
-        self.assertEqual(result_path, "Нет пути из A в E")
+        result_path = dijkstra(my_network, start_vertex, end_vertex)
+        self.assertEqual(result_path, "There is no path from A to E.")
 
 
 if __name__ == '__main__':

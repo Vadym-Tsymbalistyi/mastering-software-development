@@ -1,5 +1,5 @@
-# Измените алгоритм Дейкстры таким образом, чтобы он просто возвращал
-# путь от начальной вершины к другой вершине, которую вы передаете.
+# Modify Dijkstra's algorithm so that it simply returns
+# the path from the initial vertex to the other vertex you pass.
 import heapq
 
 
@@ -23,7 +23,7 @@ def dijkstra(graph, starting_vertex, ending_vertex):
                 previous_vertices[neighbor] = current_vertex
                 heapq.heappush(pq, (distance, neighbor))
 
-    # Восстановление пути
+    # Path Restoration
     path = []
     current_vertex = ending_vertex
     while previous_vertices[current_vertex] is not None:
@@ -33,5 +33,5 @@ def dijkstra(graph, starting_vertex, ending_vertex):
     if distances[ending_vertex] != float('infinity'):
         path.insert(0, starting_vertex)
     else:
-        return f"Нет пути из {starting_vertex} в {ending_vertex}"
+        return f"There is no path from {starting_vertex} to {ending_vertex}"
     return path
