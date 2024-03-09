@@ -1,9 +1,9 @@
 from unittest import TestCase, main
-from Chapter_16_Graphs import dijkstra
+from Dijkstra import dijkstra
 
 
-class TestGraphs(TestCase):
-    def test_short_path(self):
+class TestDijkstra(TestCase):
+    def test_short_path_found(self):
         graph = {
             'A': {'B': 1, 'C': 4},
             'B': {'A': 1, 'C': 2},
@@ -15,7 +15,7 @@ class TestGraphs(TestCase):
         result_path = dijkstra(graph, start_vertex, end_vertex)
         self.assertEqual(result_path, ['A', 'B', 'C'])
 
-    def test_short_not_path(self):
+    def test_short_path_not_found(self):
         my_network = {
             'A': {'B': 1, 'C': 4},
             'B': {'A': 1, 'C': 2},
