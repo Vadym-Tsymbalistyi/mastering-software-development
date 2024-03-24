@@ -10,6 +10,7 @@ This repository contains two books, namely: Introducing Python and Computer Scie
 
 ### 📖 Outline:
 
+
 Part I (Chapters 1–11) explains Python’s basics. You should read these chapters in
 order. I work up from the simplest data and code structures, combining them on the
 way into more detailed and realistic programs. Part II (Chapters 12–22) shows how
