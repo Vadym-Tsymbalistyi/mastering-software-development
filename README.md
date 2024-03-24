@@ -16,6 +16,7 @@ order. I work up from the simplest data and code structures, combining them on t
 way into more detailed and realistic programs. Part II (Chapters 12–22) shows how
 Python is used in specific application areas such as the web, databases, networks, and
 so on; read these chapters in any order you like.
+
 ---
 The Self-Taught Computer Scientist introduces beginner and self-taught programmers to computer science fundamentals that
 are essential for success in programming and software engineering fields. This book does not aim to cover everything you
