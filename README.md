@@ -1,14 +1,36 @@
-#  
+# 💾 Mastering Software Development 💾
 
 ---
 
 
----
+### 💡 Project idea:
 
-### 💻 Пройденные курсы:
+This repository contains two books, namely: Introducing Python and Computer Science. 
+
+---
+### 📖 Outline:
+Part I (Chapters 1–11) explains Python’s basics. You should read these chapters in
+order. I work up from the simplest data and code structures, combining them on the
+way into more detailed and realistic programs. Part II (Chapters 12–22) shows how
+Python is used in specific application areas such as the web, databases, networks, and
+so on; read these chapters in any order you like.
+---
+The Self-Taught Computer Scientist introduces beginner and self-taught programmers to computer science fundamentals that
+are essential for success in programming and software engineering fields. This book does not aim to cover everything you
+would learn about if you went to school to get a computer science degree. Instead, Cory's goal is to give you an 
+introduction to some of the most important concepts in computer science that apply to a programming career. 
+With a focus on data structures and algorithms, The Self-Taught Computer Scientist helps you fill gaps in your 
+knowledge, prepare for a technical interview, feel knowledgeable and confident on the job, and ultimately, 
+become a better programmer.
+- Learn different algorithms including linear and binary search and test your knowledge with feedback loops
+- Understand what a data structure is and study arrays, linked lists, stacks, queues, hash tables, binary trees, binary heaps, and graphs
+- Prepare for technical interviews and feel comfortable working with more experienced colleagues
+
+---
+### 💻 Books passed:
 <table>
   <tr>
-    <th colspan="3">Book</th>
+    <th colspan="3">Books</th>
   </tr>
   <tr>
     <th colspan="2">
