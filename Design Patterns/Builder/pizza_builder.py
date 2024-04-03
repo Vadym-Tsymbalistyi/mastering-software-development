@@ -5,7 +5,7 @@ class Director:
     def set_builder(self, builder):
         self.builder = builder
 
-    def constructor_pizza(self):
+    def construct_pizza(self):
         self.builder.make_pizza()
         self.builder.add_dough()
         self.builder.add_filling()
@@ -28,11 +28,26 @@ class PizzaBuilder:
 class SalamiPizzaBuilder(PizzaBuilder):
 
     def add_dough(self):
-        self.pizza.add_dough = 'Middle dough'
+        self.pizza.dough = 'Middle dough'
 
     def add_filling(self):
-        self.pizza.add_filling = ['Salami', 'Tomatoes', 'Cheese']
+        self.pizza.filling = ['Salami', 'Tomatoes', 'Cheese']
 
 
-class Pizza:  #TO DO:
-    pass
+class Pizza:  # TO DO:
+    def __init__(self):
+        self.dough = None
+        self.filling = []
+
+    def result(self):
+        print('Pizza dough:', self.dough)
+        print("FilLing:", ",".join(self.filling))
+
+
+director = Director()
+builder = SalamiPizzaBuilder()
+director.set_builder(builder)
+director.construct_pizza()
+pizza = builder.pizza
+print('Pizza salami')
+pizza.result()
