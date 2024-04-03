@@ -1,0 +1,16 @@
+@startuml
+Director *--left|> Builder
+Director : -builder:Builder
+Director : +conctruct():
+
+Builder <|-- ConcreteBuilder
+Builder : +build A()
+Builder : +build B()
+Builder : +build C()
+
+ConcreteBuilder .right.|> Product
+ConcreteBuilder : +build A()
+ConcreteBuilder : +build B()
+ConcreteBuilder : +build C()
+ConcreteBuilder : +getResult():Product
+@enduml
