@@ -1,40 +1,32 @@
-class Director:
-    def __init__(self):
-        self.builder = None
-
-    def set_builder(self, builder):
-        self.builder = builder
-
-    def construct_pizza(self):
-        self.builder.make_pizza()
-        self.builder.add_dough()
-        self.builder.add_filling()
+from Design_Patterns.Director.director import Director
 
 
 class PizzaBuilder:
     def __init__(self):
-        self.pizza = None
-
-    def make_pizza(self):
         self.pizza = Pizza()
 
+    def build(self):
+        return self.pizza
+
     def add_dough(self):
-        pass
+        return self
 
     def add_filling(self):
-        pass
+        return self
 
 
 class SalamiPizzaBuilder(PizzaBuilder):
 
     def add_dough(self):
         self.pizza.dough = 'Middle dough'
+        return self
 
     def add_filling(self):
         self.pizza.filling = ['Salami', 'Tomatoes', 'Cheese']
+        return self
 
 
-class Pizza:  # TO DO:
+class Pizza:
     def __init__(self):
         self.dough = None
         self.filling = []

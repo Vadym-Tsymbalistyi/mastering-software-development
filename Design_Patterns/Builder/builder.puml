@@ -1,5 +1,5 @@
 @startuml
-Director *--left|> Builder
+Director o--left|> Builder
 Director : -builder:Builder
 Director : +conctruct():
 
