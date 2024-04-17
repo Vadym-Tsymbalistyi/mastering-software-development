@@ -68,3 +68,20 @@ development.
 </table>
 
 ---
+### 📃 Patterns
+
+---
+
+<table>
+    <tr>
+        <th>Book</th>
+        <th colspan="13">Studied Material</th>
+    </tr>
+    <tr align="center">
+        <td><a href="https://refactoring.guru/design-patterns">Design Patterns </a></td>
+        <td>Builder</td>
+        <td>Strategy </td>
+    </tr>
+</table>
+
+---
