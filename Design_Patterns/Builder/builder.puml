@@ -1,4 +1,5 @@
 @startuml
+interface Builder
 Director o--left|> Builder
 Director : -builder:Builder
 Director : +conctruct():
