@@ -1,0 +1,14 @@
+@startuml
+interface Strategy
+
+Context o--|> Strategy
+Context : -strategy
+Context : +setStrategy(strategy)
+
+
+Strategy <|.. ConcreteStrategy1
+Strategy <|.. ConcreteStrategy2
+Strategy : +algorithm()
+ConcreteStrategy1 : +algorithm()
+ConcreteStrategy2 : +algorithm()
+@enduml
