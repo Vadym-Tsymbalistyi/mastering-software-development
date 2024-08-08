@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class Strategy(ABC):
     @abstractmethod
-    def pizza_strategy(self, pizza):
+    def prepare_pizza(self, builder):
         pass
 
     def name(self):
@@ -11,16 +11,18 @@ class Strategy(ABC):
 
 
 class FillingFirstStrategy(Strategy):
-    def pizza_strategy(self, pizza):
-        return pizza.filling + [pizza.dough]
+    def prepare_pizza(self, builder):
+        builder.add_filling()
+        builder.add_dough()
+
 
     def name(self):
         return 'FillingFirstStrategy'
 
 
 class DoughFirstStrategy(Strategy):
-    def pizza_strategy(self, pizza):
-        return [pizza.dough] + pizza.filling
-
+    def prepare_pizza(self, builder):
+        builder.add_dough()
+        builder.add_filling()
     def name(self):
         return 'DoughFirstStrategy'

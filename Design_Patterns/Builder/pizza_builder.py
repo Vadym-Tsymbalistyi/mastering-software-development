@@ -4,58 +4,53 @@ from abc import ABC, abstractmethod
 
 
 class PizzaBuilder(ABC):
-    @abstractmethod
-    def build(self):
-        return self
+    def __init__(self):
+        self.pizza = Pizza()
 
     @abstractmethod
     def add_dough(self):
-        return self
+        pass
 
     @abstractmethod
     def add_filling(self):
-        return self
+        pass
 
 
-class SalamiPizzaBuilder(PizzaBuilder):
-    def __init__(self, strategy):
-        self.pizza = Pizza(strategy)
-
-    def add_dough(self):
-        self.pizza.dough = 'Middle dough'
-        return self
-
-    def add_filling(self):
-        self.pizza.filling = ['Salami', 'Tomatoes', 'Cheese']
-        return self
-
-    def build(self):
+    def get_pizza(self):
         return self.pizza
 
 
+class SalamiPizzaBuilder(PizzaBuilder):
+    def add_dough(self):
+        self.pizza.dough = 'Middle dough'
+
+
+    def add_filling(self):
+        self.pizza.filling = ['Salami', 'Tomatoes', 'Cheese']
+
+
+
 class Pizza:
-    def __init__(self, strategy):
+    def __init__(self):
         self.dough = None
         self.filling = []
-        self.strategy = strategy
 
     def result(self):
-        print('Name strategy:', self.strategy.name())
-        print('Pizza strategy:', self.strategy.pizza_strategy(self))
         print('Pizza dough:', self.dough)
         print("Filling:", ",".join(self.filling))
 
 
-director = Director()
-builder = SalamiPizzaBuilder(FillingFirstStrategy())
+director = Director(FillingFirstStrategy())
+builder = SalamiPizzaBuilder()
 director.set_builder(builder)
-director.construct_pizza()
-pizza = builder.build()
+pizza = director.construct_pizza()
+director.show_strategy_name()
 print('Pizza salami:')
 pizza.result()
 
-builder = SalamiPizzaBuilder(DoughFirstStrategy())
+director = Director(DoughFirstStrategy())
+builder = SalamiPizzaBuilder()
 director.set_builder(builder)
-director.construct_pizza()
-pizza = builder.build()
+pizza = director.construct_pizza()
+director.show_strategy_name()
 pizza.result()
