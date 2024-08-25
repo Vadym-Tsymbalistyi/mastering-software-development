@@ -22,3 +22,7 @@ class Subject(ABC):
     def notify(self):
         for observer in self.observers:
             observer.update(self)
+
+class StrategyObserver(Observer):
+    def update(self,director):
+        print(f"Observer: The strategy has been updated to {director.strategy.name()}")

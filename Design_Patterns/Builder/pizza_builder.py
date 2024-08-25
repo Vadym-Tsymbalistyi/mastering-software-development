@@ -1,5 +1,6 @@
 from Design_Patterns.Director.director import Director
 from Design_Patterns.Strategy.strategy import DoughFirstStrategy, FillingFirstStrategy
+from Design_Patterns.Observer.observer import StrategyObserver
 from abc import ABC, abstractmethod
 
 
@@ -41,6 +42,9 @@ class Pizza:
 
 
 director = Director(FillingFirstStrategy())
+observer = StrategyObserver()
+director.attach(observer)
+
 builder = SalamiPizzaBuilder()
 director.set_builder(builder)
 pizza = director.construct_pizza()
@@ -48,9 +52,7 @@ director.show_strategy_name()
 print('Pizza salami:')
 pizza.result()
 
-director = Director(DoughFirstStrategy())
-builder = SalamiPizzaBuilder()
-director.set_builder(builder)
+director.strategy = DoughFirstStrategy()
 pizza = director.construct_pizza()
 director.show_strategy_name()
 pizza.result()
