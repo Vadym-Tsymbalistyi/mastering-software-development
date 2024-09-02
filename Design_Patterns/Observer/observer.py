@@ -23,6 +23,16 @@ class Subject(ABC):
         for observer in self.observers:
             observer.update(self)
 
+    def notify_ready(self):
+        for observer in self.observers:
+            observer.update(self)
+
 class StrategyObserver(Observer):
     def update(self,director):
         print(f"Observer: The strategy has been updated to {director.strategy.name()}")
+
+
+
+class PizzaReadyObserver(Observer):
+    def update(self,director):
+        print(f"Observer: The pizza has been ready")
