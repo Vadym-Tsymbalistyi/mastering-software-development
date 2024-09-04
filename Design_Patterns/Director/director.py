@@ -12,9 +12,8 @@ class Director(Subject):
 
     def construct_pizza(self):
         self.strategy.prepare_pizza(self.builder)
-        self.notify()
         pizza = self.builder.get_pizza()
-        self.notify_ready()
+        self.notify()
         return pizza
 
     def show_strategy_name(self):

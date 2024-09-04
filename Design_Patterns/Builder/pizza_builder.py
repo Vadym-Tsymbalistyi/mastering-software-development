@@ -1,6 +1,6 @@
 from Design_Patterns.Director.director import Director
 from Design_Patterns.Strategy.strategy import DoughFirstStrategy, FillingFirstStrategy
-from Design_Patterns.Observer.observer import StrategyObserver , PizzaReadyObserver
+from Design_Patterns.Observer.observer import DeliveryService
 from abc import ABC, abstractmethod
 
 
@@ -16,7 +16,6 @@ class PizzaBuilder(ABC):
     def add_filling(self):
         pass
 
-
     def get_pizza(self):
         return self.pizza
 
@@ -25,10 +24,8 @@ class SalamiPizzaBuilder(PizzaBuilder):
     def add_dough(self):
         self.pizza.dough = 'Middle dough'
 
-
     def add_filling(self):
         self.pizza.filling = ['Salami', 'Tomatoes', 'Cheese']
-
 
 
 class Pizza:
@@ -42,10 +39,8 @@ class Pizza:
 
 
 director = Director(FillingFirstStrategy())
-observer = StrategyObserver()
-pizza_ready_observer = PizzaReadyObserver()
-director.attach(observer)
-director.attach(pizza_ready_observer)
+delivery_service = DeliveryService()
+director.attach(delivery_service)
 
 builder = SalamiPizzaBuilder()
 director.set_builder(builder)
