@@ -1,7 +1,7 @@
 @startuml
 interface Strategy
 
-Context o--|> Strategy
+Context o-- Strategy
 Context : -strategy
 Context : +setStrategy(strategy)
 

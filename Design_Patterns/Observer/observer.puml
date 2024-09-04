@@ -1,7 +1,7 @@
 @startuml
 interface Observer
 
-Subject -right-> Observer
+Subject o-right- Observer
 Subject : + attach(subject)
 Subject : + detach(subject)
 Subject : + notify()
