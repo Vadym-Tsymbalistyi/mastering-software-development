@@ -1,0 +1,11 @@
+@startuml
+actor Client
+
+Client -> Director
+Director -> Strategu:
+Strategu ->Pizza_builder
+Pizza_builder->Observer
+Observer -> pizza
+
+
+@enduml
