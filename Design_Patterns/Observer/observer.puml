@@ -1,0 +1,12 @@
+@startuml
+interface Observer
+
+Subject o-right- Observer
+Subject : + attach(subject)
+Subject : + detach(subject)
+Subject : + notify()
+
+Observer : +update(subject)
+ConcreteObserver ..|> Observer
+ConcreteObserver : + update(subject)
+@enduml
