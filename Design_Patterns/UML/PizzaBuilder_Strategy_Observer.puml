@@ -17,5 +17,20 @@ Client -> Director:show_strategy_name
 
 Director -> pizza: result
 
+Client -> Director: (Choose a strategy):
+Client -> Director:construct_pizza
+
+Director -> Strategu:prepare_pizza(builder)
+
+Strategu ->Pizza_builder:add_dough
+Strategu ->Pizza_builder:add_filling
+
+Director -> Pizza_builder:get_pizza
+Director -> Director:notify
+Director -> Observer: update(builder)
+
+Client -> Director:show_strategy_name
+
+Director -> pizza: result
 
 @enduml
