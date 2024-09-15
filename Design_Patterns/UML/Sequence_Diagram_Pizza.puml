@@ -1,0 +1,47 @@
+@startuml
+actor Client
+
+Client -> Director:set_builder(builder):
+activate Director
+Client -> Director:construct_pizza
+
+Director -> Strategy:prepare_pizza(builder)
+activate Strategy
+Strategy ->PizzaBuilder:add_dough
+Strategy ->PizzaBuilder:add_filling
+deactivate Strategy
+Director -> PizzaBuilder:get_pizza
+activate PizzaBuilder
+PizzaBuilder -->Director:pizza
+deactivate PizzaBuilder
+Director -> Director:notify
+Director -> DeliveryService: update(builder)
+activate DeliveryService
+DeliveryService -> DeliveryService:print:'Pizza is ready for delivery!'
+deactivate DeliveryService
+Client -> Director:show_strategy_name
+Director -> Director:print:Strategy name
+
+Director -> Pizza: result
+activate Pizza
+Pizza ->Pizza:print:Pizza
+deactivate Pizza
+
+Client -> Director: (Choose a strategy):
+Client -> Director:construct_pizza
+
+Director -> Strategy:prepare_pizza(builder)
+
+Strategy ->PizzaBuilder:add_dough
+Strategy ->PizzaBuilder:add_filling
+
+Director -> PizzaBuilder:get_pizza
+Director -> Director:notify
+Director -> DeliveryService: update(builder)
+
+Client -> Director:show_strategy_name
+Director -> Director:print:Strategy name
+
+Director -> Pizza: result
+deactivate Director
+@enduml
