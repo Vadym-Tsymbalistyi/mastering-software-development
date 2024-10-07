@@ -6,10 +6,12 @@ activate Director
 Client -> Director:construct_pizza
 
 Director -> Strategy:prepare_pizza(builder)
-
 activate Strategy
+activate Strategy
+activate PizzaBuilder
 Strategy ->PizzaBuilder:add_dough
 Strategy ->PizzaBuilder:add_filling
+deactivate PizzaBuilder
 deactivate Strategy
 
 Director -> PizzaBuilder:get_pizza
@@ -17,48 +19,14 @@ activate PizzaBuilder
 PizzaBuilder -->Director:pizza
 deactivate PizzaBuilder
 Director -> Director:notify
-
+activate Director
 Director -> DeliveryService: update(builder)
-activate DeliveryService
-DeliveryService -> DeliveryService:print:'Pizza is ready for delivery!'
-deactivate DeliveryService
+deactivate Director
+
 
 Client -> Director:show_strategy_name
-Director -> Director:print:Strategy name
+Director --> Client : return Pizza
 
-Director -> Pizza: result
-activate Pizza
-Pizza ->Pizza:print:Pizza
-deactivate Pizza
-
-Client -> Director: (Choose a strategy):
-Client -> Director:construct_pizza
-
-Director -> Strategy:prepare_pizza(builder)
-
-activate Strategy
-Strategy ->PizzaBuilder:add_dough
-Strategy ->PizzaBuilder:add_filling
 deactivate Strategy
-
-Director -> PizzaBuilder:get_pizza
-activate PizzaBuilder
-PizzaBuilder-->Director:pizza
-deactivate PizzaBuilder
-Director -> Director:notify
-
-Director -> DeliveryService: update(builder)
-activate DeliveryService
-DeliveryService -> DeliveryService:print:'Pizza is ready for delivery!'
-deactivate DeliveryService
-
-Client -> Director:show_strategy_name
-Director -> Director:print:Strategy name
-
-Director -> Pizza: result
-activate Pizza
-Pizza -> Pizza:print:Pizza
-deactivate Pizza
-
 deactivate Director
 @enduml
